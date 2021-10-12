@@ -1,10 +1,10 @@
 # devops-engineer-labs
 
-## create-user.sh Usage and Example:
+## create-iam.sh Usage and Example:
 
 > This script is used to create an IAM Group/Policy/User, CodeCommit SSH Keys, and Validate Connection
-* Usage: `./create-user.sh <name_of_user>`
-* Example:  `./create-user.sh John`
+* Usage: `./create-iam.sh <name_of_user>`
+* Example:  `./create-iam.sh John`
 
 ---
 
@@ -24,8 +24,8 @@
 
 ---
 
-## delete-user.sh Usage and Example:
+## delete-iam.sh Usage and Example:
 
 > This script is used to delete an IAM CodeCommit public key and IAM User/Policy/Group
-* Usage: `./delete-user.sh <name_of_user>`
-* Example:  `./delete-user.sh John`
+* Usage: `./delete-iam.sh <name_of_user>`
+* Example:  `./delete-iam.sh John`
