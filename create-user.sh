@@ -1,7 +1,16 @@
 #!/bin/bash -x
 
+# Create IAM Group
+aws iam create-group --group-name Admins
+
+# Attach AdministratorAccess to Group
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --group-name Admins
+
 # Create IAM user
 aws iam create-user --user-name $1
+
+# Add user to Group
+aws iam add-user-to-group --user-name $1 --group-name Admins
 
 # Delete previously created codecommit_rsa ssh keys
 rm -fr ~/.ssh/codecommit_rsa*
