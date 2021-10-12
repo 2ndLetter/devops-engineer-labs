@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Create IAM user
 aws iam create-user --user-name $1
@@ -17,3 +17,7 @@ SSHPUBKEYID=$(aws iam list-ssh-public-keys --user-name $1 | jq --raw-output .SSH
 
 # Create config file for codecommit
 echo -e "Host git-codecommit.*.amazonaws.com\n  User $SSHPUBKEYID\n  IdentityFile ~/.ssh/codecommit_rsa" > ~/.ssh/config
+
+# Check connection to codecommit
+sleep 10
+ssh git-codecommit.us-east-1.amazonaws.com
