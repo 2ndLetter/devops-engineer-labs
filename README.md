@@ -1,5 +1,18 @@
 # devops-engineer-labs
 
+## spinup.sh and spindown.sh Usage and Example:
+> Two scripts created to quickly build and destroy the lab (via running the below sections)
+* Usage: `./spinup.sh <name_of_user> <name_of_repo>`
+    * Example: `./spinup.sh John my-webpage`
+* Usage: `./spindown.sh <name_of_user> <name_of_repo>`
+    * Example: `./spindown.sh John my-webpage`
+
+---
+---
+# only do the below for more finegrained control
+---
+---
+
 ## create-iam.sh Usage and Example:
 
 > This script is used to create an IAM Group/Policy/User, CodeCommit SSH Keys, and Validate Connection
