@@ -8,4 +8,3 @@ aws iam delete-ssh-public-key --user-name $1 --ssh-public-key-id $SSHPUBKEYID
 
 # Delete IAM user
 aws iam delete-user --user-name $1
-
