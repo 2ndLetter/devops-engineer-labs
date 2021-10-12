@@ -16,6 +16,7 @@ aws iam create-user --user-name brian
 aws iam upload-ssh-public-key --user-name brian --ssh-public-key-body file:///home/bmchadwick/.ssh/codecommit_rsa.pub
 
 # Grab the SSHPublicKeyId
-
+SSHPUBKEYID=$(aws iam list-ssh-public-keys --user-name brian | jq --raw-output .SSHPublicKeys[].SSHPublicKeyId)
 
 # create config file for codecommit
+echo -e "Host git-codecommit.*.amazonaws.com\n  User $SSHPUBKEYID\n  IdentityFile ~/.ssh/codecommit_rsa" > ~/.ssh/config
