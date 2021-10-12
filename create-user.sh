@@ -12,10 +12,10 @@ aws iam create-user --user-name brian
 # Give user programatic access
 #aws iam create-access-key --user-name brian
 
-# generate ssh keys
+# Upload ssh public key
+aws iam upload-ssh-public-key --user-name brian --ssh-public-key-body file:///home/bmchadwick/.ssh/codecommit_rsa.pub
 
-
-# upload ssh public key
+# Grab the SSHPublicKeyId
 
 
 # create config file for codecommit
