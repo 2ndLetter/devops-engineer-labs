@@ -6,6 +6,7 @@ aws codecommit create-repository --repository-name my-webpage --repository-descr
 # git clone repo
 mkdir -p repos
 cd repos
+rm -fr -R *
 git clone ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-webpage
 cd my-webpage
 
