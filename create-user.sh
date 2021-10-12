@@ -4,7 +4,7 @@
 aws iam create-user --user-name brian
 
 # create json file for next command
-#a aws iam create-login-profile --generate-cli-skeleton > create-login-profile.json
+#aws iam create-login-profile --generate-cli-skeleton > create-login-profile.json
 
 # Give user aws console access
 #aws iam create-login-profile --cli-input-json file://create-login-profile.json
@@ -16,5 +16,6 @@ aws iam create-user --user-name brian
 
 
 # upload ssh public key
+
 
 # create config file for codecommit
