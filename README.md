@@ -10,15 +10,17 @@
 
 ## create-codecommit-repo.sh Usage and Example:
 
-> This script is used to create
-* Usage/example:
+> This script is used to create a codecommit repository, git clone repo, copy lab to repo directory, push changes
+* Usage: `./create-codecommit-repo.sh <name_of_repo>`
+* Example:  `./create-codecommit-repo.sh my-webpage`
 
 ---
 
 ## delete-codecommit-repo.sh Usage and Example:
 
-> This script is used to delete
-* Usage/example:
+> This script is used to delete a codecommit repository, local repo cleanup
+* Usage/example: `./delete-codecommit-repo.sh <name_of_repo>`
+* Example:  `./delete-codecommit-repo.sh my-webpage`
 
 ---
 
