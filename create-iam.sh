@@ -35,4 +35,4 @@ echo -e "Host git-codecommit.*.amazonaws.com\n  User $SSHPUBKEYID\n  IdentityFil
 
 # Check connection to codecommit
 sleep 10
-ssh git-codecommit.us-east-1.amazonaws.com
+ssh git-codecommit.us-east-1.amazonaws.com || echo 0
