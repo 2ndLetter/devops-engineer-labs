@@ -1,0 +1,16 @@
+{
+    "name": "MyWebAppCodeBuildMaster",
+    "source": {
+        "type": "CODECOMMIT",
+        "location": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-webpage"
+    },
+    "artifacts": {
+        "type": "NO_ARTIFACTS"
+    },
+    "environment": {
+        "type": "LINUX_CONTAINER",
+        "image": "aws/codebuild/amazonlinux2-x86_64-standard:3.0",
+        "computeType": "BUILD_GENERAL1_SMALL"
+    },
+    "serviceRole": "codebuildrole"
+}

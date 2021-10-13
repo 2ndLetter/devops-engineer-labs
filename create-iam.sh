@@ -1,5 +1,11 @@
 #!/bin/bash -x
 
+# Create IAM Service Role for CodeBuild
+aws iam create-role --role-name CodeBuildRole --assume-role-policy-document file://role-trust-policy.json
+
+# Attach AdministratorAccess to Role
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --role-name CodeBuildRole
+
 # Create IAM Group
 aws iam create-group --group-name Admins
 
