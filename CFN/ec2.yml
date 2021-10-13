@@ -381,6 +381,16 @@ Resources:
           - AWSInstanceType2Arch
           - !Ref InstanceType
           - Arch
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash -xe
+            exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+            sudo yum update -y
+            sudo yum install -y ruby wget
+            wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+            chmod +x ./install
+            sudo ./install auto
+            sudo service codedeploy-agent status
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
