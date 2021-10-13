@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -ex
+
+./delete-codedeploy.sh
 
 ./delete-codecommit-repo.sh $2
 

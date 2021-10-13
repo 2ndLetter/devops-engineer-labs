@@ -12,8 +12,14 @@ aws iam remove-user-from-group --user-name $1 --group-name Admins
 # Delete IAM user
 aws iam delete-user --user-name $1
 
-# Detach AdministratorAccess to Group
+# Detach AdministratorAccess from Group
 aws iam detach-group-policy --group-name Admins --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+# Detach AdministratorAccess from Role
+aws iam detach-role-policy --role-name CodeDeployRole --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 
 # Delete IAM Group
 aws iam delete-group --group-name Admins
+
+# Delete IAM Role
+aws iam delete-role --group-name CodeBuildRole

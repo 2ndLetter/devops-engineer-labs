@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 # Create IAM Service Role for CodeBuild
 aws iam create-role --role-name CodeBuildRole --assume-role-policy-document file://role-trust-policy.json
