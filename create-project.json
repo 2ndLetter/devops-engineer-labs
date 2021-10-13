@@ -12,5 +12,5 @@
         "image": "aws/codebuild/amazonlinux2-x86_64-standard:3.0",
         "computeType": "BUILD_GENERAL1_SMALL"
     },
-    "serviceRole": "codebuildrole"
+    "serviceRole": "CodeBuildRole"
 }
