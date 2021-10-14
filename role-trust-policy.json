@@ -6,6 +6,7 @@
       "Principal": {
         "Service": [
           "codebuild.amazonaws.com",
+          "codedeploy.amazonaws.com",
           "ec2.amazonaws.com"
         ]
       },
