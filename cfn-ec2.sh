@@ -1,13 +1,10 @@
 #!/bin/bash -ex
 
-# Create keypair
+# Create keypair if it doesn't exist
 KEYPAIR=$(aws ec2 describe-key-pairs --filters Name=key-name,Values=keypair | jq --raw-output .KeyPairs[].KeyName)
 if [[ $KEYPAIR == keypair ]]
 then
   echo "keypair already exist!"
-  #rm -fr CFN/keypair.pem
-  #aws ec2 delete-key-pair --key-name keypair
-  #aws ec2 create-key-pair --key-name keypair --query "KeyMaterial" --output text > CFN/keypair.pem
 else
   echo "creating keypair!"
   rm -fr CFN/keypair.pem
