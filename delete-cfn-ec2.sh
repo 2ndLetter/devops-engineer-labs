@@ -16,10 +16,3 @@ then
   echo "Deleting CFN stack"
   aws cloudformation delete-stack --stack-name my-ec2-instance
 fi
-
-
-
-
-
-#aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE | jq --raw-output .StackSummaries[].StackName
-#aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE | jq --raw-output '.StackSummaries[] | select(.StackName == "my-ec2-instance")' | jq --raw-output .StackName
