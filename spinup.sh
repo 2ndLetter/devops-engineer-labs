@@ -5,3 +5,5 @@
 ./create-codecommit-repo.sh $2
 
 ./create-codedeploy.sh
+
+./create-cfn-ec2.sh
