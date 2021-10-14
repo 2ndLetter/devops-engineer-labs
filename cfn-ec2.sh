@@ -11,5 +11,5 @@ else
   aws ec2 create-key-pair --key-name keypair --query "KeyMaterial" --output text > CFN/keypair.pem
 fi
 
-# Deploy/Update CFN Stack
+# Deploy/Update CFN Stack with ec2 instance
 aws cloudformation deploy --template-file CFN/ec2.yml --stack-name my-ec2-instance --no-fail-on-empty-changeset --capabilities "CAPABILITY_NAMED_IAM"
