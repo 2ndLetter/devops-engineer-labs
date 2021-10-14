@@ -370,6 +370,7 @@ Resources:
   EC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
+      IamInstanceProfile: !Ref RootInstanceProfile
       InstanceType: !Ref InstanceType
       SecurityGroups:
         - !Ref InstanceSecurityGroup
@@ -400,6 +401,38 @@ Resources:
           FromPort: '22'
           ToPort: '22'
           CidrIp: !Ref SSHLocation
+  RootRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: EC2RoleForCodeDeploy
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: '*'
+                Resource: '*'
+  RootInstanceProfile:
+    Type: 'AWS::IAM::InstanceProfile'
+    Properties:
+      InstanceProfileName: EC2RoleForCodeDeploy
+      Path: /
+      Roles:
+        - !Ref RootRole
+
+
+
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance
