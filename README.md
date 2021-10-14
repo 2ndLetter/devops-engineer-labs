@@ -10,6 +10,7 @@
 ---
 ---
 # only do the below for more finegrained control
+> I'll update the info below once this project is complete, as I'm making changes quickly at the moment
 ---
 ---
 
