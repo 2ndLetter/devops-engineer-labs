@@ -6,6 +6,12 @@ aws iam create-role --role-name CodeBuildRole --assume-role-policy-document file
 # Attach AdministratorAccess to Role
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --role-name CodeBuildRole
 
+# Create IAM Instance Profile
+aws iam create-instance-profile --instance-profile-name CodeBuildRole
+
+# Add Role to Instance Profile
+aws iam add-role-to-instance-profile --role-name CodeBuildRole --instance-profile-name CodeBuildRole
+
 # Create IAM Group
 aws iam create-group --group-name Admins
 

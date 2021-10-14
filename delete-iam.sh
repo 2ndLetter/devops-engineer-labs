@@ -21,5 +21,11 @@ aws iam detach-role-policy --role-name CodeBuildRole --policy-arn arn:aws:iam::a
 # Delete IAM Group
 aws iam delete-group --group-name Admins
 
+# Remote Role from Instance Profile
+aws iam remove-role-from-instance-profile --instance-profile-name CodeBuildRole --role-name CodeBuildRole
+
+# Delete IAM Instance Profile
+aws iam delete-instance-profile --instance-profile-name CodeBuildRole
+
 # Delete IAM Role
 aws iam delete-role --role-name CodeBuildRole
