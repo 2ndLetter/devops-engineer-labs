@@ -1,5 +1,7 @@
 #!/bin/bash -ex
 
+./delete-codedeploy.sh
+
 ./delete-cfn-ec2.sh
 
 ./delete-codebuild.sh
