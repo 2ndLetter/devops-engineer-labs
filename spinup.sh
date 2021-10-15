@@ -7,3 +7,6 @@
 ./create-codedeploy.sh
 
 ./create-cfn-ec2.sh
+
+
+# Open up the SG

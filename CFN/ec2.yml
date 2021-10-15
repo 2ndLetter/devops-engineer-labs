@@ -367,7 +367,7 @@ Mappings:
       HVM64: ami-01fee56b22f308154
       HVMG2: ami-0fe84a5b4563d8f27
 Resources:
-  EC2Instance:
+  EC2Instance1:
     Type: 'AWS::EC2::Instance'
     Properties:
       IamInstanceProfile: !Ref RootInstanceProfile
@@ -397,14 +397,132 @@ Resources:
             chmod +x ./install
             sudo ./install auto
             sudo service codedeploy-agent status
+  EC2Instance2:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      IamInstanceProfile: !Ref RootInstanceProfile
+      InstanceType: !Ref InstanceType
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: !Ref KeyName
+      ImageId: !FindInMap 
+        - AWSRegionArch2AMI
+        - !Ref 'AWS::Region'
+        - !FindInMap 
+          - AWSInstanceType2Arch
+          - !Ref InstanceType
+          - Arch
+      Tags:
+        - Key: "Name"
+          Value: "webserver"
+        - Key: "Environment"
+          Value: "Development"
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash -xe
+            exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+            sudo yum update -y
+            sudo yum install -y ruby wget
+            wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+            chmod +x ./install
+            sudo ./install auto
+            sudo service codedeploy-agent status
+  EC2Instance3:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      IamInstanceProfile: !Ref RootInstanceProfile
+      InstanceType: !Ref InstanceType
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: !Ref KeyName
+      ImageId: !FindInMap 
+        - AWSRegionArch2AMI
+        - !Ref 'AWS::Region'
+        - !FindInMap 
+          - AWSInstanceType2Arch
+          - !Ref InstanceType
+          - Arch
+      Tags:
+        - Key: "Name"
+          Value: "webserver"
+        - Key: "Environment"
+          Value: "Development"
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash -xe
+            exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+            sudo yum update -y
+            sudo yum install -y ruby wget
+            wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+            chmod +x ./install
+            sudo ./install auto
+            sudo service codedeploy-agent status
+  EC2Instance4:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      IamInstanceProfile: !Ref RootInstanceProfile
+      InstanceType: !Ref InstanceType
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: !Ref KeyName
+      ImageId: !FindInMap 
+        - AWSRegionArch2AMI
+        - !Ref 'AWS::Region'
+        - !FindInMap 
+          - AWSInstanceType2Arch
+          - !Ref InstanceType
+          - Arch
+      Tags:
+        - Key: "Name"
+          Value: "webserver"
+        - Key: "Environment"
+          Value: "Production"
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash -xe
+            exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+            sudo yum update -y
+            sudo yum install -y ruby wget
+            wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+            chmod +x ./install
+            sudo ./install auto
+            sudo service codedeploy-agent status
+  EC2Instance5:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      IamInstanceProfile: !Ref RootInstanceProfile
+      InstanceType: !Ref InstanceType
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: !Ref KeyName
+      ImageId: !FindInMap 
+        - AWSRegionArch2AMI
+        - !Ref 'AWS::Region'
+        - !FindInMap 
+          - AWSInstanceType2Arch
+          - !Ref InstanceType
+          - Arch
+      Tags:
+        - Key: "Name"
+          Value: "webserver"
+        - Key: "Environment"
+          Value: "Production"
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash -xe
+            exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+            sudo yum update -y
+            sudo yum install -y ruby wget
+            wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+            chmod +x ./install
+            sudo ./install auto
+            sudo service codedeploy-agent status
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       GroupDescription: Enable SSH access via port 22
       SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
+        - IpProtocol: "-1"
           CidrIp: !Ref SSHLocation
   RootRole:
     Type: 'AWS::IAM::Role'
@@ -438,22 +556,22 @@ Resources:
 
 
 
-Outputs:
-  InstanceId:
-    Description: InstanceId of the newly created EC2 instance
-    Value: !Ref EC2Instance
-  AZ:
-    Description: Availability Zone of the newly created EC2 instance
-    Value: !GetAtt 
-      - EC2Instance
-      - AvailabilityZone
-  PublicDNS:
-    Description: Public DNSName of the newly created EC2 instance
-    Value: !GetAtt 
-      - EC2Instance
-      - PublicDnsName
-  PublicIP:
-    Description: Public IP address of the newly created EC2 instance
-    Value: !GetAtt 
-      - EC2Instance
-      - PublicIp
+#Outputs:
+#  InstanceId:
+#    Description: InstanceId of the newly created EC2 instance
+#    Value: !Ref EC2Instance
+#  AZ:
+#    Description: Availability Zone of the newly created EC2 instance
+#    Value: !GetAtt 
+#      - EC2Instance
+#      - AvailabilityZone
+#  PublicDNS:
+#    Description: Public DNSName of the newly created EC2 instance
+#    Value: !GetAtt 
+#      - EC2Instance
+#      - PublicDnsName
+#  PublicIP:
+#    Description: Public IP address of the newly created EC2 instance
+#    Value: !GetAtt 
+#      - EC2Instance
+#      - PublicIp
