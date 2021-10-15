@@ -3,7 +3,6 @@
 # Create CodeDeploy Application
 aws deploy create-application --application-name CodeDeployDemo
 
-
 # Create CodeDeploy deployment group
 ACCOUNT=$(aws sts get-caller-identity | jq -r .Account)
 aws deploy create-deployment-group \
@@ -24,4 +23,5 @@ aws deploy create-deployment \
     --application-name CodeDeployDemo \
     --deployment-config-name CodeDeployDefault.OneAtATime \
     --deployment-group-name MyDevelopmentInstances \
+    --file-exists-behavior OVERWRITE \
     --s3-location bucket=aws-devops-course-$HASH,bundleType=zip,key=codedeploy-demo/app.zip
