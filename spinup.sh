@@ -4,6 +4,10 @@
 
 ./create-codecommit-repo.sh $2
 
-./create-codedeploy.sh
+./create-codebuild.sh
 
 ./create-cfn-ec2.sh
+
+
+# Create CodeDeploy deployment group
+# Create that s3 bucket

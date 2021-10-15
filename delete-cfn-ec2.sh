@@ -10,7 +10,7 @@ then
 fi
 
 # Delete CFN Stack with ec2 instance
-CFNSTACK=$(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE | jq --raw-output '.StackSummaries[] | select(.StackName == "my-ec2-instance")' | jq --raw-output .StackName)
+CFNSTACK=$(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE | jq --raw-output '.StackSummaries[] | select(.StackName == "my-ec2-instance")' | jq --raw-output .StackName)
 if [[ $CFNSTACK == my-ec2-instance ]]
 then
   echo "Deleting CFN stack"
