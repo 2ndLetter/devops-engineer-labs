@@ -9,5 +9,6 @@
 ./create-cfn-ec2.sh
 
 
+# Create CodeDeploy Application
 # Create CodeDeploy deployment group
 # Create that s3 bucket
