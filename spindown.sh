@@ -6,6 +6,6 @@
 
 ./delete-codebuild.sh
 
-./delete-codecommit-repo.sh $2
+./delete-codecommit-repo.sh my-webpage
 
-./delete-iam.sh $1
+./delete-iam.sh brian

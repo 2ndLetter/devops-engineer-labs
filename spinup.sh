@@ -1,8 +1,8 @@
 #!/bin/bash -ex
 
-./create-iam.sh $1
+./create-iam.sh brian
 
-./create-codecommit-repo.sh $2
+./create-codecommit-repo.sh my-webpage
 
 ./create-codebuild.sh
 
