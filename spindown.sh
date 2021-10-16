@@ -10,4 +10,4 @@
 
 ./delete-iam.sh brian
 
-#./delete-codepipeline.sh
+./delete-codepipeline.sh
