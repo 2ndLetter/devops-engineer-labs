@@ -1,4 +1,4 @@
 repos/*
 */*.pem
-codepipeline-project.json
 cloudwatch-events-rule.json
+codepipeline-project.json
