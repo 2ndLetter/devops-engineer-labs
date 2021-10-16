@@ -9,7 +9,7 @@ aws codepipeline delete-pipeline --name CodePipelineDemo
 
 # Add target to CloudWatch Events Rule
 #export ACCOUNT=$(aws sts get-caller-identity | jq -r .Account)
-aws events remove-targets --rule codepipeline-mywebpage-master --ids "Id"="1"
+aws events remove-targets --rule codepipeline-mywebpage-master --ids "1"
 
 # Create CloudWatch Events Rule
 aws events delete-rule --name "codepipeline-mywebpage-master"
