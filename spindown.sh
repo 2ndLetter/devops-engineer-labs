@@ -9,3 +9,5 @@
 ./delete-codecommit-repo.sh my-webpage
 
 ./delete-iam.sh brian
+
+#./delete-codepipeline.sh
