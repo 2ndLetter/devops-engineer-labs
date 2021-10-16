@@ -8,6 +8,7 @@
           "codebuild.amazonaws.com",
           "codedeploy.amazonaws.com",
           "codepipeline.amazonaws.com",
+          "events.amazonaws.com",
           "ec2.amazonaws.com"
         ]
       },

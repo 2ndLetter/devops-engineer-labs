@@ -1,0 +1,8 @@
+{
+    "Name": "codepipeline-mywebpage-master",
+    "EventPattern": "{\"source\":[\"aws.codecommit\"],\"detail-type\":[\"CodeCommit Repository State Change\"],\"resources\":[\"arn:aws:codecommit:us-east-1:ACCOUNT_VAR:my-webpage\"],\"detail\":{\"event\":[\"referenceCreated\",\"referenceUpdated\"],\"referenceType\":[\"branch\"],\"referenceName\":[\"master\"]}}",
+    "State": "ENABLED",
+    "Description": "Amazon CloudWatch Events rule to automatically start your pipeline when a change occurs in the AWS CodeCommit source repository and branch. Deleting this may prevent changes from being detected in that pipeline. Read more: http://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-about-starting.html",
+    "RoleArn": "arn:aws:iam::ACCOUNT_VAR:role/CodeBuildRole",
+    "EventBusName": "default"
+}
