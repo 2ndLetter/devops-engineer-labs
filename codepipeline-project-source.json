@@ -1,6 +1,6 @@
 {
     "pipeline": {
-     "roleArn": "arn:aws:iam::733487994826:role/CodeBuildRole",
+     "roleArn": "arn:aws:iam::ACCOUNT_VAR:role/CodeBuildRole",
      "stages": [
        {
          "name": "Source",
@@ -59,7 +59,7 @@
      ],
      "artifactStore": {
        "type": "S3",
-       "location": "aws-devops-course-rpplxhu2bphlxn2t5euc"
+       "location": "BUCKET_VAR"
      },
      "name": "CodePipelineDemo",
      "version": 1
