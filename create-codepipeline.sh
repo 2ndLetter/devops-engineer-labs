@@ -7,4 +7,4 @@ sed -e "s/ACCOUNT_VAR/$ACCOUNT/g" -e "s/BUCKET_VAR/$BUCKET/g" codepipeline-proje
 
 
 # Create codepipeline pipeline
-#aws codepipeline create-pipeline --cli-input-json file://codepipeline-project.json
+aws codepipeline create-pipeline --cli-input-json file://codepipeline-project.json
