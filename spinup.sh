@@ -10,4 +10,6 @@
 
 ./create-codedeploy.sh
 
-#./create-codepipeline.sh
+sleep 120
+
+./create-codepipeline.sh
