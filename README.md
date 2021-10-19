@@ -1,5 +1,7 @@
 # devops-engineer-labs
 
+> Currently builds out lab through video #33
+
 ## spinup.sh and spindown.sh Usage and Example:
 > Two scripts created to quickly build and destroy the lab (via running the below sections)
 * Usage: `./spinup.sh <name_of_user> <name_of_repo>`
